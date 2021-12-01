@@ -1,0 +1,12 @@
+{
+  "name": "miniInsta-backend",
+  "version": "1.0.0",
+  "description": "Backend for miniInsta",
+  "main": "app.js",
+  "author": "Omji Kushwaha",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.14"
+  }
+}
