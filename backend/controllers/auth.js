@@ -43,7 +43,6 @@ export const signin=(req,res)=>{
                 error:"Email and password deos not match"
             })
         }
-        console.log(process.env.SECRET)
         var token = jwt.sign({_id:user._id},process.env.SECRET)
         res.cookie("token",token,{expire:new Date() + 1})
         const {firstname,email,_id,}=user
@@ -67,7 +66,7 @@ export const signout =(req,res)=>{
 //Protected Routes 
 export const isSignIn =expressjwt({
     secret:process.env.SECRET,
-    algorithms: ['RS256'],
+    algorithms: ['HS256'],
      userProperty: 'auth' 
         })
 //Middleware

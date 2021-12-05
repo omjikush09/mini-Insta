@@ -1,22 +1,27 @@
-import Mongoose from "mongoose";
+import mongoose from "mongoose";
 
-const imageSchema = Mongoose.Schema({
+const imageSchema = mongoose.Schema({
     url:{
         type:String,
+        required:true,
         trim:true
     },
+    uploadedBy:{
+        type:mongoose.Types.ObjectId,
+        ref:"User"
+    },
     likedUsers:{
-        type:[Mongoose.Types.ObjectId],
-        ref:User
+        type:[mongoose.Types.ObjectId],
+        ref:"User"
     },
     likeCount:{
         type:Number,
         default:0
     },
     comments:{
-        type:[Mongoose.Types.ObjectId],
-        ref:comment
+        type:[mongoose.Types.ObjectId],
+        ref:"comment"
     }
 },{timestamps:true})
 
-exports.model = Mongoose.Model("Image",imageSchema)
+export default  mongoose.model("Image",imageSchema)
