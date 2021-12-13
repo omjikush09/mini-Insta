@@ -15,6 +15,11 @@ var userSchema = new mongoose.Schema({
         trim:true,
         maxlength:32
     },
+    username:{
+        type:String,
+        trim:true,
+        maxlength:20
+    },
     email:{
         type:String,
         required:true,
@@ -52,7 +57,7 @@ var userSchema = new mongoose.Schema({
         ref:"User",
         default:[]
     },
-    follow:{
+    following:{
         type:[mongoose.Types.ObjectId],
         ref:"User",
         default:[]

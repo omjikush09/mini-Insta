@@ -5,7 +5,6 @@ import jwt from "jsonwebtoken"
 import expressjwt from "express-jwt"
 import user from "../models/user.js"
 export const signup =(req,res)=>{
-
     User.where({email:req.body.email}).findOne((error,userfound)=>{
      
         if(userfound){
@@ -45,8 +44,8 @@ export const signin=(req,res)=>{
         }
         var token = jwt.sign({_id:user._id},process.env.SECRET)
         res.cookie("token",token,{expire:new Date() + 1})
-        const {firstname,email,_id,}=user
-        res.json({token,user:{firstname,email,_id}})
+        const {firstname,email,_id,username}=user
+        res.json({token,user:{firstname,email,_id,username}})
         }else{
             return res.status(400).json({
                 error:"Not able to find user "
